@@ -16,6 +16,27 @@
       - use connection as mentioned above and write data to hana db
           - https://www.npmjs.com/package/@sap/hana-client
           - https://docs.nestjs.com/techniques/database
+              - use  createConnection, getConnection   from 'typeorm'
+
+                const credentials = {
+                    type: 'sap',
+                    host: hanaCredentials.host || '',
+                    port: (hanaCredentials.port as unknown) || '',
+                    username: hanaCredentials.user || '',
+                    password: hanaCredentials.password || '',
+                    database: this.configService.get<string>('DB_NAME') || 'H00',
+                    name: tenantId,
+                    schema: '',
+                    encrypt: true,
+                    synchronize: false,
+                    logging: this.configService.get<string>('DB_LOG') || '["error" , "warn", "info", "log"]',
+                    maxQueryExecutionTime: 5000,
+                    pool: { min: 10, max: 20, requestTimeout: 10000 },
+                    extra: { sslValidateCertificate: false },
+                } as SapConnectionOptions;
+
+
+
   - schedule everything as a a task
       - https://docs.nestjs.com/techniques/task-scheduling
       - https://help.sap.com/docs/JOB_SCHEDULER/07b57c2f4b944bcd8470d024723a1631/22c2df4d22cb4a05af4c9502a67597ae.html?locale=en-US 
