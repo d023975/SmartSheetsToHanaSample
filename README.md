@@ -20,7 +20,7 @@
       - https://docs.nestjs.com/techniques/task-scheduling
       - https://help.sap.com/docs/JOB_SCHEDULER/07b57c2f4b944bcd8470d024723a1631/22c2df4d22cb4a05af4c9502a67597ae.html?locale=en-US 
 
-  - app does not need to run on cf can run everywhere - should be secure due to credential settings
+  - app does not need to run on cf. It can run everywhere - should be secure due to credential settings
     - cf specific parts need then 2 B replaced
 
   - alternatively implement a REST client from within Python or JS execution engine
