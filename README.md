@@ -5,7 +5,7 @@
   - access to https://smartsheet.redoc.ly/#section/API-Basics/HTTP-and-REST
     - can be done via oauth client credentials grant
       - destinations could be used to configure it on CF : https://help.sap.com/docs/CP_CONNECTIVITY/cca91383641e40ffbe03bdc78f00f681/7e306250e08340f89d6c103e28840f30.html
-      - or use cups
+      - or use cups - use-provided service on CF to wrap access info
   - get DB connection to HANA DB:
       - https://<papm-cloud-api>/<Get DB credentials>
       - can be authorized va api access: https://help.sap.com/docs/SAP_PROFITABILITY_PERFORMANCE_MANAGEMENT_CLOUD/184efabaccdc4175b97223affaf7e5f8/09d3b74b678f42cca3d0af3193e3dd67.html?locale=en-US
@@ -23,7 +23,8 @@
   - app does not need to run on cf can run everywhere - should be secure due to credential settings
     - cf specific parts need then 2 B replaced
 
-
+  - alternatively implement a REST client from within Python or JS execution engine
+    - issue: How to store credentials in a secure manner
 
 
 
