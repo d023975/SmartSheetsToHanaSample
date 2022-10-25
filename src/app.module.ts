@@ -8,6 +8,8 @@ import { LoggerModule } from './logger/logger.module';
 import { LoggerMiddleware } from './logger/logger.middleware';
 import { SmartSheetController } from './smart-sheet/smart-sheet.controller';
 import { SmartSheetService } from './smart-sheet/smart-sheet.service';
+import { ScopesGuard } from './scopes.guard';
+import { APP_GUARD } from '@nestjs/core';
 
 @Module({
   imports: [
@@ -17,7 +19,15 @@ import { SmartSheetService } from './smart-sheet/smart-sheet.service';
     }),
   ],
   controllers: [AppController, SmartSheetController],
-  providers: [AppService, CFLoggerService, SmartSheetService],
+  providers: [
+    {
+      provide: APP_GUARD,
+      useClass: ScopesGuard,
+    },
+    AppService,
+    CFLoggerService,
+    SmartSheetService,
+  ],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
