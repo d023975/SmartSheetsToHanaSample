@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set your env here
-source ./credentials.sh
+source ./scripts/credentials.sh
 
 
 btp login --url $URL --subdomain $GLOBAL_ACCOUNT_ID --user $CF_USER --password $CF_PASS
@@ -16,14 +16,14 @@ then
     ENTITLEMENT_SERVICE='APPLICATION_RUNTIME'
     ENTITLEMENT_PLAN='MEMORY'
     ENTITLEMENT_QUOTA='5'
-    btp assign accounts/entitlement --to-subaccount $SUBACCOUNT_ID --for-service $ENTITLEMENT_SERVICE --plan $ENTITLEMENT_PLAN --amount $ENTITLEMENT_QUOTA
+    btp assign accounts/entitlement --to-subaccount "$SUBACCOUNT_ID" --for-service $ENTITLEMENT_SERVICE --plan $ENTITLEMENT_PLAN --amount $ENTITLEMENT_QUOTA
 
 fi
 
 
-cf login -a $API -o $ORG -s $SPACE -u $CF_USER -p $CF_PASS
+cf login -a "$API" -o "$ORG" -s "$SPACE" -u "$CF_USER" -p "$CF_PASS"
 
-cf cs papm-service default papm-service-default -c ./xs-broker-instance-config.json
+cf cs papm-service default papm-service-default -c ./scripts/xs-broker-instance-config.json
 cf csk papm-service-default sk-papm-service-default
 cf cs application-logs lite applogs-lite
 cf cs destination lite destination-lite
