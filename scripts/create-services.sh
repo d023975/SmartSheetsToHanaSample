@@ -27,6 +27,7 @@ cf cs papm-service default papm-service-default -c ./xs-broker-instance-config.j
 cf csk papm-service-default sk-papm-service-default
 cf cs application-logs lite applogs-lite
 cf cs destination lite destination-lite
+cf cs xsuaa application xsuaa-application -c ./security/xs-security.json
 
  
  
