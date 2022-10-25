@@ -1,0 +1,21 @@
+---
+applications:
+  - name: smart-sheets-demo-632adb34-5429
+    command: yarn run start:prod
+    memory: 512M
+    disk_quota: 512M
+    instances: 2
+    timeout: 180
+    routes:
+      - route: ((app-route))
+    health-check-type: http
+    health-check-http-endpoint: /health
+    buildpacks:
+      - nodejs_buildpack
+    env:
+      XSUAA_APPLICATION: 'xsuaa-application'
+    services:
+      - xsuaa-application
+      - destination-lite
+      - applogs-lite
+      - papm-service-default

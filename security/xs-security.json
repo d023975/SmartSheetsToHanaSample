@@ -1,0 +1,59 @@
+{
+  "xsappname": "smart-sheets-demo-632adb34-5429",
+  "description": "Smart Sheets",
+  "tenant-mode": "dedicated",
+  "xsenableasyncservice": "false",
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.write",
+      "description": "write"
+    },
+    {
+      "name": "$XSAPPNAME.read",
+      "description": "read"
+    }
+  ],
+  "oauth2-configuration": {
+    "token-validity": 3600,
+    "refresh-token-validity": 32400,
+    "autoapprove": "true",
+    "redirect-uris": [
+      "https://*.cfapps.eu10.hana.ondemand.com/**",
+      "https://*.cfapps.us10.hana.ondemand.com/**",
+      "https://*.cfapps.eu20.hana.ondemand.com/**",
+      "https://*.cfapps.us21.hana.ondemand.com/**",
+      "https://*.cfapps.eu11.hana.ondemand.com/**",
+      "https://*.cfapps.br10.hana.ondemand.com/**",
+      "https://*.cfapps.ca10.hana.ondemand.com/**",
+      "https://*.localhost:5000/**",
+      "http://*.localhost:5000/**",
+      "http://localhost:5000/**"
+    ],
+    "grant-types": [
+      "client_credentials",
+      "authorization_code",
+      "password",
+      "refresh_token",
+      "user_token",
+      "urn:ietf:params:oauth:grant-type:saml2-bearer",
+      "urn:ietf:params:oauth:grant-type:jwt-bearer"
+    ]
+  },
+  "role-templates": [
+    {
+      "name": "ADMIN_USER",
+      "description": "Administrator User",
+      "scope-references": [
+        "$XSAPPNAME.read",
+        "$XSAPPNAME.write"
+      ]
+    },
+    {
+      "name": "READ_ONLY_USER",
+      "description": "Administrator User",
+      "scope-references": [
+        "$XSAPPNAME.read"
+      ]
+    }
+  ]
+}

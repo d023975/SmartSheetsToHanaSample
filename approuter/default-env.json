@@ -1,0 +1,12 @@
+{
+  "destinations": [
+    {
+      "name": "appBackend",
+      "url": "http://localhost:3000/",
+      "forwardAuthToken": true,
+      "setXForwardedHeaders": false,
+      "timeout": 60000
+    }
+  ],
+  "XS_APP_LOG_LEVEL": "debug"
+}

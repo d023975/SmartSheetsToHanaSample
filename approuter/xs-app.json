@@ -1,0 +1,38 @@
+{
+    "welcomeFile": "/start.html",
+    "sessionTimeout": 120,
+    "logout": {
+        "logoutEndpoint": "/logout",
+        "logoutPage": "/logout.html"
+    },
+    "routes": [
+        {
+            "source": "^/start.html$",
+            "localDir": "static"
+        },
+        {
+            "source": {
+                "path": "^/smartsheets(.*)$",
+                "matchCase": false
+            },
+            "target": "$1",
+            "destination": "appBackend"
+        },
+        {
+            "source": "^/logout.html$",
+            "localDir": "static",
+            "authenticationType": "none"
+        },
+        {
+          "source": {
+            "path": "^/user-api(.*)",
+            "matchCase": false
+          },
+          "target": "/$1",
+          "service": "sap-approuter-userapi"
+        }
+    ],
+    "websockets": {
+        "enabled": true
+    }
+}

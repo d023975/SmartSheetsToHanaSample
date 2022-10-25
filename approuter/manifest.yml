@@ -1,0 +1,27 @@
+---
+applications:
+  # Application Router
+  - name: approuter-632adb34-5429
+    buildpacks:
+      - nodejs_buildpack
+    command: npm start
+    memory: 512M
+    disk_quota: 512M
+    instances: 2
+    env:
+      XS_APP_LOG_LEVEL: debug
+      destinations: >
+        [
+          {
+            "name": "appBackend",
+            "url": "https://smart-sheets-demo-632adb34-5429-br10-dev.cfapps.br10.hana.ondemand.com",
+            "forwardAuthToken": true,
+            "setXForwardedHeaders": false,
+            "timeout": 90000
+          }
+        ]
+    services:
+      - applogs-lite
+      - xsuaa-application
+
+

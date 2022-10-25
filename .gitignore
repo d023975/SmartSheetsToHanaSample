@@ -143,3 +143,5 @@ dist
 credentials.sh
 
 default-services.json
+
+test.env
