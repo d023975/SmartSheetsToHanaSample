@@ -10,6 +10,7 @@ import { SmartSheetController } from './smart-sheet/smart-sheet.controller';
 import { SmartSheetService } from './smart-sheet/smart-sheet.service';
 import { ScopesGuard } from './scopes.guard';
 import { APP_GUARD } from '@nestjs/core';
+import { ApiService } from './api/api.service';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { APP_GUARD } from '@nestjs/core';
     AppService,
     CFLoggerService,
     SmartSheetService,
+    ApiService,
   ],
 })
 export class AppModule implements NestModule {
