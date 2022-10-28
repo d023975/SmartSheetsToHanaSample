@@ -49,7 +49,16 @@
 
 
 GET https://qam-papm.prod-cand.papm.cloud.sap/sap/opu/odata/NXI/P1_N_APP_ADMIN_SRV/DbCredentialsSet
-GET https://papm-cloud-operations-br10.br10.papm.cloud.sap/sap/opu/odata/NXI/P1_N_MOD_SRV/ENVVSet(EnvId='OPS',Ver='0001')
+https://papm-cloud-operations-br10.br10.papm.cloud.sap/sap/opu/odata/NXI/P1_N_MOD_SRV/ENVVSet
+  Environment = 'ENV',
+"Content": {
+      "tab_env_kpi": {
+        "TABLE": [
+          {
+            "CLIENT": "105",
+            "ENV_ID": "OPS",
+            "VER": "0001",
+            "SEQ": "0000223",
 
 
 

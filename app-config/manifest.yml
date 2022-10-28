@@ -14,7 +14,9 @@ applications:
       - nodejs_buildpack
     env:
       XSUAA_APPLICATION: 'xsuaa-application'
-      PAPM_SERVICE: 'papm-service-default
+      PAPM_SERVICE_NAME: 'papm-service-default'
+      DESTINATION_SERVICE_NAME: 'destination-lite'
+      EXTERNAL_DESTINATION_NAME: 'papm-cloud-api'
     services:
       - xsuaa-application
       - destination-lite
