@@ -48,7 +48,7 @@
     - issue: How to store credentials in a secure manner
 
 
-GET https://qam-papm.prod-cand.papm.cloud.sap/sap/opu/odata/NXI/P1_N_APP_ADMIN_SRV/DbCredentialsSet
+GET  
 https://papm-cloud-operations-br10.br10.papm.cloud.sap/sap/opu/odata/NXI/P1_N_MOD_SRV/ENVVSet
   Environment = 'ENV',
 "Content": {
