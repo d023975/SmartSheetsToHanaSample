@@ -62,6 +62,66 @@ https://papm-cloud-operations-br10.br10.papm.cloud.sap/sap/opu/odata/NXI/P1_N_MO
 
 
 
+CREATE COLUMN TABLE "SAP_PAPM"."/NXI/TP1ENV"(
+	"CLIENT" NVARCHAR(3) DEFAULT '000' NOT NULL COMMENT 'Client',
+	"ENV_ID" NVARCHAR(3) DEFAULT '' NOT NULL COMMENT 'Environment',
+	"VER" NVARCHAR(4) DEFAULT '' NOT NULL COMMENT 'Version',
+	"SEQ" NVARCHAR(7) DEFAULT '0000000' NOT NULL COMMENT 'Sequence',
+	"PENV_ID" NVARCHAR(3) DEFAULT '' NOT NULL COMMENT 'Parent Environment',
+	"ENV_TYPE" NVARCHAR(10) DEFAULT '' NOT NULL COMMENT 'Environment Type',
+	"ENV_STATE" NVARCHAR(10) DEFAULT '' NOT NULL COMMENT 'Environment State',
+	"DBCON" NVARCHAR(30) DEFAULT '' NOT NULL COMMENT 'Logical name for a database connection',
+	"RFCDEST" NVARCHAR(32) DEFAULT '' NOT NULL COMMENT 'Logical destination (specified in function call)',
+	"INFOAREA" NVARCHAR(30) DEFAULT '' NOT NULL COMMENT 'InfoArea',
+	"BPC_ENVIRONMENT" NVARCHAR(20) DEFAULT '' NOT NULL COMMENT 'BPC Environment',
+	"CALLBACK_RFCDEST" NVARCHAR(32) DEFAULT '' NOT NULL COMMENT 'Callback RFC Destination',
+	"DESCR" NVARCHAR(255) DEFAULT '' NOT NULL COMMENT 'Description',
+	"DOCU" NVARCHAR(255) DEFAULT '' NOT NULL COMMENT 'Description',
+	"EXPANDED" NVARCHAR(1) DEFAULT '' NOT NULL COMMENT 'Expanded',
+	"ISLEAF" NVARCHAR(1) DEFAULT '' NOT NULL COMMENT 'Is Leaf',
+	"SAMPLE_CONTENT" NVARCHAR(1) DEFAULT '' NOT NULL COMMENT 'Data element for domain BOOLE: TRUE (=''X'') and FALSE (='' '')',
+	CONSTRAINT "PK_ab6ee4d2642127f32f91f368e6d" PRIMARY KEY INVERTED INDIVIDUAL(
+		"CLIENT",
+		"ENV_ID",
+		"VER"
+	)
+)
+UNLOAD PRIORITY 5 AUTO MERGE;
+
+INSERT INTO "SAP_PAPM"."/NXI/TP1ENV" VALUES(
+	''/*CLIENT <NVARCHAR(3)>*/,
+	''/*ENV_ID <NVARCHAR(3)>*/,
+	''/*VER <NVARCHAR(4)>*/,
+	''/*SEQ <NVARCHAR(7)>*/,
+	''/*PENV_ID <NVARCHAR(3)>*/,
+	''/*ENV_TYPE <NVARCHAR(10)>*/,
+	''/*ENV_STATE <NVARCHAR(10)>*/,
+	''/*DBCON <NVARCHAR(30)>*/,
+	''/*RFCDEST <NVARCHAR(32)>*/,
+	''/*INFOAREA <NVARCHAR(30)>*/,
+	''/*BPC_ENVIRONMENT <NVARCHAR(20)>*/,
+	''/*CALLBACK_RFCDEST <NVARCHAR(32)>*/,
+	''/*DESCR <NVARCHAR(255)>*/,
+	''/*DOCU <NVARCHAR(255)>*/,
+	''/*EXPANDED <NVARCHAR(1)>*/,
+	''/*ISLEAF <NVARCHAR(1)>*/,
+	''/*SAMPLE_CONTENT <NVARCHAR(1)>*/
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
