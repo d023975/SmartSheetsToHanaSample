@@ -11,6 +11,7 @@ import { SmartSheetService } from './smart-sheet/smart-sheet.service';
 import { ScopesGuard } from './scopes.guard';
 import { APP_GUARD } from '@nestjs/core';
 import { ApiService } from './api/api.service';
+import { DatabaseModule } from './database/database.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { ApiService } from './api/api.service';
     ConfigModule.forRoot({
       envFilePath: (() => `config/${process.env.STAGE || 'prod-dev'}/.env`)(),
     }),
+    DatabaseModule,
   ],
   controllers: [AppController, SmartSheetController],
   providers: [
