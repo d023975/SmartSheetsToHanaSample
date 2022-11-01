@@ -36,6 +36,7 @@ import { DatabaseModule } from './database/database.module';
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer.apply(AuthMiddleware).forRoutes('smartsheets*');
+    consumer.apply(AuthMiddleware).forRoutes('database*');
     consumer.apply(LoggerMiddleware).forRoutes('*');
   }
 }

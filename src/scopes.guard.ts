@@ -23,9 +23,9 @@ export class ScopesGuard implements CanActivate {
       return false;
     }
     const isAuthorized = scopes.some((scope) => {
-      const tenantId = request.authInfo.getZoneId();
-      request.logger.setTenantId(tenantId);
-      request.logger.info(`Checking scope ${scope} for tenant ${tenantId} `);
+      // const tenantId = request.authInfo.getZoneId();
+      // request.logger.setTenantId(tenantId);
+      // request.logger.info(`Checking scope ${scope} for tenant ${tenantId} `);
 
       return request.authInfo.checkLocalScope(scope);
     });

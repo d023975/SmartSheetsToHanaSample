@@ -15,7 +15,8 @@ export const databaseProviders = [
         password: conn['d']['password'],
         database: 'H00',
         entities: [__dirname + '/../**/*.entity{.ts,.js}'],
-        synchronize: false,
+        synchronize: true,
+        logging: true,
       });
 
       return dataSource.initialize();
