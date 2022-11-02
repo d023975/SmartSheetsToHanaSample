@@ -1,0 +1,12 @@
+#clientSecret=<< Existing password/certificate removed on export >>
+#
+#Wed Nov 02 18:44:57 UTC 2022
+Description=papm-cloud-api
+Type=HTTP
+clientId=sb-papm-cloud-api\!b1767|sap-papm-cloud\!b742
+Authentication=OAuth2JWTBearer
+Name=papm-cloud-api
+tokenServiceURL=https\://papm-cloud-operations-br10.authentication.br10.hana.ondemand.com/oauth/token
+ProxyType=Internet
+URL=https\://papm-cloud-api.cfapps.br10.hana.ondemand.com
+tokenServiceURLType=Dedicated
