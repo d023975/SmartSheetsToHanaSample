@@ -10,7 +10,7 @@ export class DatabaseController {
     private readonly smartSheetService: SmartSheetService,
   ) {}
   @Scopes('write')
-  @Post('createEntry')
+  @Get('createEntry')
   async createJob(): Promise<unknown> {
     const data =
       await this.smartSheetService.sampleGetDataViaAPIAndGetAPIDetailsFromDestination();

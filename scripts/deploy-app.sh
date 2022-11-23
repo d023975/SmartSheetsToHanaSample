@@ -2,7 +2,7 @@
 
 
 yarn install --ignore-engines
-yarn build
+yarn build 
 
 source scripts/credentials.sh
 

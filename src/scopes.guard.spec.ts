@@ -1,7 +1,9 @@
 import { ScopesGuard } from './scopes.guard';
+import { Reflector } from '@nestjs/core';
 
 describe('ScopesGuard', () => {
   it('should be defined', () => {
-    expect(new ScopesGuard()).toBeDefined();
+    const reflector = new Reflector();
+    expect(new ScopesGuard(reflector)).toBeDefined();
   });
 });

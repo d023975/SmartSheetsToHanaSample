@@ -12,6 +12,7 @@ import { ScopesGuard } from './scopes.guard';
 import { APP_GUARD } from '@nestjs/core';
 import { ApiService } from './api/api.service';
 import { DatabaseModule } from './database/database.module';
+import { DatabaseController } from './database/database.controller';
 
 @Module({
   imports: [
@@ -35,8 +36,10 @@ import { DatabaseModule } from './database/database.module';
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer.apply(AuthMiddleware).forRoutes('smartsheets*');
-    consumer.apply(AuthMiddleware).forRoutes('database*');
+    consumer
+      .apply(AuthMiddleware)
+      .forRoutes('smartsheets*', SmartSheetController);
+    consumer.apply(AuthMiddleware).forRoutes('database*', DatabaseController);
     consumer.apply(LoggerMiddleware).forRoutes('*');
   }
 }

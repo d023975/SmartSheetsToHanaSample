@@ -3,7 +3,7 @@ applications:
   - name: smart-sheets-demo-632adb34-5429
     command: yarn run start:prod
     memory: 512M
-    disk_quota: 512M
+    disk_quota: 580M
     instances: 2
     timeout: 180
     routes:

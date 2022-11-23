@@ -7,11 +7,16 @@ export class ScopesGuard implements CanActivate {
   constructor(private reflector: Reflector) {}
 
   canActivate(context: ExecutionContext): boolean {
+    const authenticationWhiteList = ['GET /health'];
     const scopes = this.reflector.get<string[]>('scopes', context.getHandler());
+    const request = context.switchToHttp().getRequest();
+    const route = `${request.method} ${request.url}`;
+    if (authenticationWhiteList.includes(route)) {
+      return true;
+    }
     if (!scopes) {
       return false;
     }
-    const request = context.switchToHttp().getRequest();
 
     return this.validateRequest(request, scopes);
   }
