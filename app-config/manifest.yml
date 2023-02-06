@@ -17,6 +17,8 @@ applications:
       PAPM_SERVICE_NAME: 'papm-service-default'
       DESTINATION_SERVICE_NAME: 'destination-lite'
       EXTERNAL_DESTINATION_NAME: 'papm-cloud-api'
+      BEARER_TOKEN: 'Wpq33OZqM6DdBPHj4cr6z5KED8hH2M58k2dDD'
+      SMART_SHEET_ENDPOINT: 'https://api.smartsheet.com/2.0'
     services:
       - xsuaa-application
       - destination-lite

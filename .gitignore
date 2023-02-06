@@ -145,3 +145,7 @@ credentials.sh
 default-services.json
 
 test.env
+
+.env
+
+README_PRIVATE.md

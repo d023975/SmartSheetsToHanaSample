@@ -4,6 +4,20 @@ import axios from '../clients/axios.client';
 
 @Injectable()
 export class SmartSheetService {
+  async getReports(id: string): Promise<unknown> {
+    const token = process.env.BEARER_TOKEN;
+    const endpoint = process.env.SMART_SHEET_ENDPOINT;
+
+    if (!(token && endpoint)) return 'Missing env vars';
+
+    const resp = await axios.get(`${endpoint}/reports/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    return resp.data;
+  }
   createJob(): unknown {
     throw new Error('Method not implemented.');
   }

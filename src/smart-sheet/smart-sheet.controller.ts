@@ -1,4 +1,4 @@
-import { Controller, Get, Post, UseGuards } from '@nestjs/common';
+import { Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
 import { Scopes } from 'src/scopes.decorator';
 import { SmartSheetService } from './smart-sheet.service';
 
@@ -14,5 +14,11 @@ export class SmartSheetController {
   @Post('jobstatus')
   async createJob(): Promise<unknown> {
     return await this.smartSheetService.createJob();
+  }
+
+  @Scopes('read')
+  @Get('reports/:id')
+  async getReports(@Param() params): Promise<unknown | undefined> {
+    return await this.smartSheetService.getReports(params.id);
   }
 }
