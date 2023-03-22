@@ -20,7 +20,8 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "clean:delete-connections": "yarn run ts-node ./src/scripts/delete-connections.ts"
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",
@@ -57,7 +58,7 @@
     "supertest": "^6.1.3",
     "ts-jest": "28.0.8",
     "ts-loader": "^9.2.3",
-    "ts-node": "^10.0.0",
+    "ts-node": "^10.9.1",
     "tsconfig-paths": "4.1.0",
     "typescript": "^4.7.4"
   },
@@ -79,7 +80,7 @@
     "testEnvironment": "node"
   },
   "engines": {
-    "node": "16.17.0",
+    "node": "18.12.0",
     "npm": "8.15.0"
   }
 }

@@ -49,15 +49,9 @@ export class SmartSheetService {
   }
 
   async sampleGetDataViaAPIAndGetAPIDetailsFromDestination(): Promise<unknown> {
-    //get Destination Toke
     const { destinationService, bearerDestinationApi } =
       await this.getDestinationToken();
-    // READ Destination
-
-    // USE Destination
-
     const destName = process.env.EXTERNAL_DESTINATION_NAME || 'papm-cloud-api';
-
     const resp = await axios.get(
       `${destinationService.service.uri}/destination-configuration/v1/subaccountDestinations/${destName}`,
       {
@@ -66,11 +60,9 @@ export class SmartSheetService {
         },
       },
     );
-
     const tokenEndpoint = resp.data.tokenServiceURL;
     const clientSecret = resp.data.clientSecret;
     const clientid = resp.data.clientId;
-
     const bearerPapmApi = await this.getBearer(
       tokenEndpoint,
       clientid,
@@ -78,7 +70,7 @@ export class SmartSheetService {
     );
 
     const resp2 = await axios.get(
-      `${resp.data.URL}/sap/opu/odata/NXI/P1_N_MOD_SRV/ENVVSet`,
+      `${resp.data.URL}/sap/opu/odata/NXI/P1_N_APP_ADMIN_SRV/DbCredentialsSet`,
       {
         headers: {
           Authorization: `Bearer ${bearerPapmApi.access_token}`,
@@ -86,6 +78,41 @@ export class SmartSheetService {
       },
     );
 
+    return resp2.data;
+  }
+  // https://papm-cloud-operations-br10.br10.papm.cloud.sap/sap/opu/odata4/NXI/P1_CONNECTION_MANAGEMENT/CONM(CLIENT='105',CONN_CLASS='',CONN_NAME='NotUsed')
+  async deleteConnectionAndGetAPIAccessFromDestination(
+    connName: string,
+  ): Promise<unknown> {
+    const { destinationService, bearerDestinationApi } =
+      await this.getDestinationToken();
+    const destName = process.env.EXTERNAL_DESTINATION_NAME || 'papm-cloud-api';
+    const resp = await axios.get(
+      `${destinationService.service.uri}/destination-configuration/v1/subaccountDestinations/${destName}`,
+      {
+        headers: {
+          Authorization: `Bearer ${bearerDestinationApi.access_token}`,
+        },
+      },
+    );
+    const tokenEndpoint = resp.data.tokenServiceURL;
+    const clientSecret = resp.data.clientSecret;
+    const clientid = resp.data.clientId;
+    const bearerPapmApi = await this.getBearer(
+      tokenEndpoint,
+      clientid,
+      clientSecret,
+    );
+    const encoded = encodeURIComponent(connName);
+    const escaped = encoded.replace(/'/g, "''");
+    const resp2 = await axios.delete(
+      `${resp.data.URL}/sap/opu/odata4/NXI/P1_CONNECTION_MANAGEMENT/CONM(CLIENT='105',CONN_CLASS='',CONN_NAME='${escaped}')`,
+      {
+        headers: {
+          Authorization: `Bearer ${bearerPapmApi.access_token}`,
+        },
+      },
+    );
     return resp2.data;
   }
 

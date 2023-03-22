@@ -1,5 +1,5 @@
 import { Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
-import { Scopes } from 'src/scopes.decorator';
+import { Scopes } from '../scopes.decorator';
 import { SmartSheetService } from './smart-sheet.service';
 
 @Controller('smartsheets')

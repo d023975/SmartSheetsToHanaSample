@@ -1,5 +1,5 @@
 import { Controller, Get, Inject, Post } from '@nestjs/common';
-import { Scopes } from 'src/scopes.decorator';
+import { Scopes } from '../scopes.decorator';
 import { SmartSheetService } from '../smart-sheet/smart-sheet.service';
 import { Env } from './entities/environment.entity';
 

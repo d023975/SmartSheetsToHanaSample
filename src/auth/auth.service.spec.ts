@@ -1,17 +1,12 @@
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { Test, TestingModule } from '@nestjs/testing';
 import { AuthMiddleware } from './auth.middleware';
-
 describe('AuthMiddleware', () => {
   let service: AuthMiddleware;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      imports: [
-        ConfigModule.forRoot({
-          envFilePath: (() => `test/test.env`)(),
-        }),
-      ],
+      imports: [ConfigModule.forRoot({ envFilePath: 'src/.env' })],
       providers: [AuthMiddleware, ConfigService],
     }).compile();
 
